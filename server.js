@@ -20,14 +20,14 @@ app.get('/contactlist',function(req,res)
 });
 app.post('/contactlist',function(req,res){
 	console.log(req.body);
-	if(!db.contactlist.find({name:req.body.name})
+	//if(!db.contactlist.find({name:req.body.name})
     {
 		db.contactlist.insert(req.body,function(err,doc){
 	    res.json(doc);
 	});
 	}
 
-  db.contactlist.find({name: req.body.name},function(err,doc){
+  /*db.contactlist.find({name: req.body.name},function(err,doc){
 		console.log(doc);
 		var user ={};
 		user.name=doc.name;
@@ -37,7 +37,7 @@ app.post('/contactlist',function(req,res){
 		db.contactlist.remove({id: mongojs.doc._id},function(err,doc){
 			res.json(doc);
 		});
-	    });
+	    });*/
  });
 
 app.delete('/contactlist/:id',function(req,res){
